@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule | SPECTRUM 2026 | Nift Delhi</title>
+
+    <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+    linear-gradient(rgba(45,26,50,0.8), rgba(45,26,50,0.8)),
+    url("../Backgrounds/home.png");
+
+background-size: cover;
+background-position: center;
+
+}
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-btn {
+    position: absolute;
+
+    width: 45px;        /* change size freely */
+    top: 4.5%;          /* change vertical position */
+    left: 1.5%;         /* change horizontal position */
+
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 200;       /* above wheel + navbar */
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+/* ============================= */
+/* CENTER IMAGE CONTAINER */
+/* ============================= */
+
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 75%;
+    height: 80vh;
+
+    background: #1e1e1e;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    z-index: 50;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.03);
+}
+
+
+/* ============================= */
+/* FULLSCREEN OVERLAY */
+/* ============================= */
+
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+
+    z-index: 999;
+}
+
+.fullscreen-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-image {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+
+</style>
+</head>
+
+<body>
+
+    
+ <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+<div class="image-container">
+
+    <img src="../assets/brochure-image.jpg" class="preview-image" id="previewImg">
+
+</div>
+
+<!-- FULLSCREEN OVERLAY -->
+<div class="fullscreen-overlay" id="fullscreenOverlay">
+    <img src="../assets/brochure-image.jpg" class="fullscreen-image">
+</div>
+
+
+<!-- BACK BUTTON -->
+<a href="../more.html">
+    <img src="../Button Images/backicon.png" class="back-btn">
+</a>
+
+ <script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+<script>
+const preview = document.getElementById("previewImg");
+const overlay = document.getElementById("fullscreenOverlay");
+
+preview.addEventListener("click", () => {
+    overlay.classList.add("active");
+});
+
+overlay.addEventListener("click", () => {
+    overlay.classList.remove("active");
+});
+</script>
+
+</body>
+</html>

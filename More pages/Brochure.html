@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brochure | SPECTRUM 2026 | Nift Delhi</title>
+
+    <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+    linear-gradient(rgba(45,26,50,0.8), rgba(45,26,50,0.8)),
+    url("../Backgrounds/home.png");
+
+background-size: cover;
+background-position: center;
+
+}
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-btn {
+    position: absolute;
+
+    width: 45px;        /* change size freely */
+    top: 4.5%;          /* change vertical position */
+    left: 1.5%;         /* change horizontal position */
+
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 200;       /* above wheel + navbar */
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+/* ============================= */
+/* PDF CONTAINER */
+/* ============================= */
+
+.pdf-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 75%;
+    height: 80vh;
+
+    background: #1e1e1e;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+
+    overflow: hidden;
+    z-index: 50;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================= */
+/* DOWNLOAD BUTTON */
+/* ============================= */
+
+.download-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+
+    background: #2d1a32;
+    color: #ffd173;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    text-decoration: none;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: scale(1.1);
+    background: #2d1a32;
+}
+
+</style>
+</head>
+
+<body>
+
+    
+ <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+<div class="pdf-container">
+
+    <iframe src="../assets/brochure.pdf" class="pdf-viewer"></iframe>
+
+    <a href="../assets/brochure.pdf" download class="download-btn">
+        <i class="fas fa-download"></i>
+    </a>
+
+</div>
+
+<!-- BACK BUTTON -->
+<a href="../more.html">
+    <img src="../Button Images/backicon.png" class="back-btn">
+</a>
+
+ <script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+</body>
+</html>

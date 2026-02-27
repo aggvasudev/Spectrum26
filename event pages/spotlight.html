@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Spotlight Events | SPECTRUM 2026 | Nift Delhi</title>
+   <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+    <link rel="stylesheet" href="../navbarstyle.css">
+<link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;  /* match your site theme */
+}
+
+       body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    background-image: url('../Backgrounds/wall.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        .page-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: #2d1a32;  
+    z-index: 1;
+}
+
+.back-btn {
+    position: absolute;
+    top: 4.5%;
+    left: 1.5%;
+    width: 45px;
+    z-index: 50;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.back-btn img {
+    width: 100%;
+    display: block;
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+.card-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    padding: 60px 0;   /* 🔥 THIS prevents top/bottom cut */
+    z-index: 2;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.6s ease;
+}
+
+/* CARD BASE */
+/* CARD BASE */
+.card {
+    width: 280px;       /* slightly smaller overall */
+    height: 420px;
+    perspective: 1200px;
+    transition: 0.4s ease;
+    transform: scale(0.8);   /* side cards smaller */
+    filter: brightness(50%);
+    flex-shrink: 0;
+}
+
+/* CENTER CARD */
+.card.active {
+    transform: scale(1.01);     /* only card scales */
+    filter: brightness(100%);
+}
+
+/* INNER FLIP */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+/* FLIP ON HOVER */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+
+}
+
+.card-front img,
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BACK ROTATION */
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.carousel-viewport {
+    width: 950px;        /* 3 cards visible */
+    overflow: hidden;
+}
+
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+    color: #ffd173;
+}
+
+.arrow.left {
+    left: 5%;
+}
+
+.arrow.right {
+    right: 5%;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-content">
+
+            <div class="nav-links">
+                 <a href="#" onclick="playTransition('../index.html')">Home</a>
+    <a href="#" onclick="playTransition('../index.html?scroll=about')">About Us</a>
+    <a href="../events.html">Events</a>
+    <a href="#" onclick="playTransition('../contact.html')">Contact Us</a>
+</div>
+
+<div class="logo">
+                    <img src="../Button Images/logo.png" alt="Logo">
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="page-hero">
+
+<a href="../events.html" class="back-btn">
+    <img src="../Button Images/backicon.png">
+</a>
+
+
+    </section>
+
+<script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+<section class="card-carousel">
+
+    <button class="arrow left" onclick="moveSlide(-1)">‹</button>
+
+    <div class="carousel-viewport">
+    <div class="carousel-track">
+
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/artist-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/artist-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card active">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/baavleutaavle-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/baavleutaavle-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/bangrang-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/bangrang-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/battleofbands-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/battleofbands-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+         <!-- CARD 5 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/firstshow-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/firstshow-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+ <!-- CARD 6 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/influencer meet-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/influencermeet-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+ <!-- CARD 7 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/jhumroo-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/jhumroo-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+ <!-- CARD 8 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/pitchplease-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/pitchplease-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+ <!-- CARD 9 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="event cards/showcase-back.png" alt="">
+                </div>
+                <div class="card-back">
+                    <img src="event cards/showcase-front.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+    <button class="arrow right" onclick="moveSlide(1)">›</button>
+
+</section>
+
+<script>
+const track = document.querySelector('.carousel-track');
+const cards = document.querySelectorAll('.card');
+const viewport = document.querySelector('.carousel-viewport');
+
+let currentIndex = 1;
+
+function updateActive() {
+
+    cards.forEach(card => card.classList.remove('active'));
+    cards[currentIndex].classList.add('active');
+
+    const cardWidth = cards[0].offsetWidth + 50; // 50 = gap
+    const center = viewport.offsetWidth / 2 - cards[0].offsetWidth / 2;
+
+    track.style.transform =
+        `translateX(${center - currentIndex * cardWidth}px)`;
+}
+
+cards[0].offsetWidth
+
+function moveSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > cards.length - 1)
+        currentIndex = cards.length - 1;
+
+    updateActive();
+}
+
+updateActive();
+
+</script>
+
+</body>
+</html>

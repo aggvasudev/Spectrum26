@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery | SPECTRUM 2026 | Nift Delhi</title>
+
+    <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+    <link rel="stylesheet" href="../More pages/gallerypage/slider.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background:
+        url("../Backgrounds/gallery.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-btn {
+    position: absolute;
+
+    width: 45px;        /* change size freely */
+    top: 4.5%;          /* change vertical position */
+    left: 1.5%;         /* change horizontal position */
+
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 200;       /* above wheel + navbar */
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+ <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+<!-- BACK BUTTON -->
+<a href="../more.html">
+    <img src="../Button Images/backicon.png" class="back-btn">
+</a>
+
+<div class="slider">
+  <div class="circular-slider circular-slider-1">
+    <div class="wrapper">
+
+<div class="controls__left arrow-btn">‹</div>
+<div class="controls__right arrow-btn">›</div>
+
+
+
+      <div class="slides-holder">
+        <div class="slides-holder__item slides-holder__item_active">
+          <img src="../More pages/gallerypage/fashion2.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/artist.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/dance.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/fashion1.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/influencer.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/nukkad.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/food.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/sing.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/reveal.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/carrom.png">
+        </div>
+        <div class="slides-holder__item">
+          <img src="../More pages/gallerypage/dhara.png">
+        </div>
+      </div>
+
+      <div class="descriptions"></div>
+
+    </div>
+  </div>
+</div>
+
+   <script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+<script src="../More pages/gallerypage/slider.js"></script>
+
+</body>
+</html>

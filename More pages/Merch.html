@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merch | SPECTRUM 2026 | Nift Delhi</title>
+
+    <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+    linear-gradient(rgba(45,26,50,0.8), rgba(45,26,50,0.8)),
+    url("../Backgrounds/home.png");
+
+background-size: cover;
+background-position: center;
+
+}
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-btn {
+    position: absolute;
+
+    width: 45px;        /* change size freely */
+    top: 4.5%;          /* change vertical position */
+    left: 1.5%;         /* change horizontal position */
+
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 200;       /* above wheel + navbar */
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+/* ============================= */
+/* COMING SOON CENTER IMAGE */
+/* ============================= */
+
+.coming-soon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 50; /* above background */
+}
+
+.coming-soon-img {
+    width: 40%;
+    max-width: 500px;
+    min-width: 250px;
+
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+</style>
+</head>
+
+<body>
+
+    
+ <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+
+<div class="coming-soon-wrapper">
+    <img src="../Button Images/comingsoon.png" class="coming-soon-img">
+</div>
+
+<!-- BACK BUTTON -->
+<a href="../more.html">
+    <img src="../Button Images/backicon.png" class="back-btn">
+</a>
+
+ <script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+
+</body>
+</html>

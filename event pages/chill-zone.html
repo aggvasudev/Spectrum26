@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Chill Zone Events | SPECTRUM 2026 | Nift Delhi</title>
+   <link rel="icon" type="image/png" sizes="42x42" href="../Backgrounds/favicon.png">
+    <link rel="stylesheet" href="../navbarstyle.css">
+<link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+    <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;  /* match your site theme */
+}
+        {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        /* Background Image for this page only */
+        .page-hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('../Backgrounds/wall.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .page-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: #2d1a32;  
+    z-index: 1;
+}
+
+.back-btn {
+    position: absolute;
+    top: 4.5%;
+    left: 1.5%;
+    width: 45px;
+    z-index: 50;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.back-btn img {
+    width: 100%;
+    display: block;
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="../Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-content">
+
+            <div class="nav-links">
+                 <a href="#" onclick="playTransition('../index.html')">Home</a>
+    <a href="#" onclick="playTransition('../index.html?scroll=about')">About Us</a>
+    <a href="../events.html">Events</a>
+    <a href="#" onclick="playTransition('../contact.html')">Contact Us</a>
+</div>
+
+<div class="logo">
+                    <img src="../Button Images/logo.png" alt="Logo">
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="page-hero">
+
+<a href="../events.html" class="back-btn">
+    <img src="../Button Images/backicon.png">
+</a>
+
+
+    </section>
+
+<script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+</script>
+
+</body>
+</html>
