@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | SPECTRUM 2026 | Nift Delhi</title>
+    <link rel="stylesheet" href="navbarstyle.css">
+    <link rel="icon" type="image/png" sizes="42x42" href="Backgrounds/favicon.png">
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            /* match your site theme */
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .page-hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('Backgrounds/musician.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Static Image */
+        .static-image {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 300px;
+        }
+
+        /* Common Button Style */
+        .btn {
+            position: absolute;
+            width: 300px;
+            /* button size */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* Individual Button Positions */
+        .btn1 {
+            top: 43%;
+            left: 10%;
+        }
+
+        .btn2 {
+            top: 51%;
+            left: 10%;
+        }
+
+        .btn3 {
+            top: 59%;
+            left: 10%;
+        }
+
+        .btn4 {
+            top: 67%;
+            left: 10%;
+        }
+
+        .btn5 {
+            top: 75%;
+            left: 10%;
+        }
+
+        .back-btn {
+            position: absolute;
+            width: 45px;
+            top: 30px;
+            left: 1.5%;
+            z-index: 50;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .back-btn img {
+            width: 100%;
+            display: block;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.15) rotate(2deg);
+            opacity: 0.9;
+        }
+
+        /* ===== Base Navbar Styling ===== */
+        .navbar {
+            width: 90%;
+            /* background: #ffffff; */
+            padding: 12px 10px;
+            box-sizing: border-box;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ===== Nav Links ===== */
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            /* color: #222; */
+            transition: 0.3s ease;
+        }
+
+        /* .nav-links a:hover {
+    color: #007bff;
+} */
+
+        /* ===== Logo ===== */
+        .logo img {
+            width: 200px;
+            /* Proper fixed width */
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 1024px) and (min-width: 768px) {
+
+            .navbar {
+                padding: 12px 25px;
+                /* Reduce side padding */
+            }
+
+            .nav-links {
+                gap: 20px;
+                /* Reduce link spacing */
+            }
+
+            .nav-links a {
+                font-size: 15px;
+                /* Slightly smaller text */
+            }
+
+            .logo img {
+                width: 110px;
+                /* Adjust logo size for tablets */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="transitionOverlay" style="display: none;">
+        <video id="transitionVideo" muted playsinline preload="auto">
+            <source src="Backgrounds/loading.MP4" type="video/mp4">
+        </video>
+    </div>
+
+    <section class="page-hero">
+        <!-- Static Image -->
+        <img src="Button Images/events.png" class="static-image">
+
+        <!-- Custom Buttons -->
+        <a href="event pages/spotlight.html">
+            <img src="Button Images/spotlight.png" class="btn btn1">
+        </a>
+
+        <a href="event pages/literary.html">
+            <img src="Button Images/literary.png" class="btn btn2">
+        </a>
+
+        <a href="event pages/sports.html">
+            <img src="Button Images/sports.png" class="btn btn3">
+        </a>
+
+        <a href="event pages/film.html">
+            <img src="Button Images/film.png" class="btn btn4">
+        </a>
+
+        <a href="event pages/chill-zone.html">
+            <img src="Button Images/chill-zone.png" class="btn btn5">
+        </a>
+
+        <a href="index.html" class="back-btn">
+            <img src="Button Images/backicon.png">
+        </a>
+
+    </section>
+    <!-- NAVBAR (same everywhere) -->
+    <nav class="navbar">
+        <div class="nav-content">
+
+            <div class="nav-links">
+                <a href="#" onclick="playTransition('index.html')">Home</a>
+                <a href="#" onclick="playTransition('index.html?scroll=about')">
+                    About Us
+                </a>
+                <a href="events.html">Events</a>
+                <a href="#" onclick="playTransition('contact.html')">Contact Us</a>
+            </div>
+
+            <div class="logo">
+                <img src="Button Images/logo.png" alt="Logo">
+            </div>
+
+        </div>
+    </nav>
+
+    <script>
+        function playTransition(targetPage) {
+
+            const overlay = document.getElementById("transitionOverlay");
+            const video = document.getElementById("transitionVideo");
+
+            overlay.style.display = "flex";
+
+            video.currentTime = 0;
+            video.play();
+
+            video.onended = function () {
+                window.location.href = targetPage;
+            };
+        }
+    </script>
+
+</body>
+
+</html>

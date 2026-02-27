@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SPECTRUM 2026 | Nift Delhi</title>
+<link rel="stylesheet" href="navbarstyle.css">
+ <link rel="icon" type="image/png" sizes="42x42" href="Backgrounds/favicon.png">
+    <link href="https://fonts.google.com/specimen/EB+Garamond?query=garamond" rel="stylesheet">
+
+    <style>
+       * {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+       
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+/* Keep navbar + buttons above */
+.navbar {
+    position: fixed;
+    z-index: 30;
+}
+
+
+.custom-btn1,
+.custom-btn2,
+.custom-btn3,
+.static-image {
+    position: absolute;
+    z-index: 30;
+}
+
+
+.transition-section {
+    width: 100%;
+}
+
+/* About section */
+.about-section {
+    position: relative;
+    z-index: 1;
+    background: #2d1a32;
+    color: white;
+    padding: 200px 10%;
+    text-align: center;
+}
+        /* HERO SECTION */
+.hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.scroll-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-spacer {
+    height: 0vh;
+}
+
+/* Allow scrolling equal to long image height */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.scroll-section {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none; 
+}
+
+.long-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;   /* image should not capture clicks */
+}
+
+.back-btn {
+    position: fixed;
+    bottom: 617px;
+    left: 25px;
+    width: 45px;
+    z-index: 30;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.back-btn img {
+    width: 100%;
+    display: block;
+}
+
+.back-btn:hover {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+.hero-spacer {
+    height: 0vh;
+}
+
+        .static-image {
+    position: fixed;
+    top: 74%;      /* move up/down */
+    left: 5%;     /* move left/right */
+    width: 300px;  /* size */
+}
+
+/* REGISTER BUTTON */
+.custom-btn1 {
+    position: fixed;
+    
+    /* Adjust these values to place it exactly */
+    top: 85%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    
+    width: 18vw;
+    max-width: 300px;
+    min-width: 140px;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.custom-btn1:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* MORE BUTTON */
+.custom-btn2 {
+    position: fixed;
+    
+    /* Adjust these values to place it exactly */
+    top: 30px;
+    left: 1.5%;
+    /* transform: translate(-50%, -50%); */
+    
+    width: 3.5vw;
+    max-width: 50px;
+    min-width: 28px;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.custom-btn2:hover {
+    transform: scale(1.1);
+}
+
+/* INSTAGRAM BUTTON */
+.custom-btn3 {
+    position: fixed;
+
+    /* Set your own placement */
+    top: 32%;
+    left: 70.5%;
+    transform: translate(-50%, -50%);
+
+    /* Set your own size */
+    width: 4vw;
+    max-width: 60px;
+    min-width: 30px;
+
+
+    z-index: 30;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.custom-btn3:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    filter: drop-shadow(0 0 15px #ffd173)
+            drop-shadow(0 0 25px #ffd173);
+}
+.navbar,
+.custom-btn1,
+.custom-btn2,
+.custom-btn3,
+.static-image {
+    transition: opacity 0.2s ease;
+}
+
+
+
+/* ===== Base Navbar Styling ===== */
+.navbar {
+    width: 90%;
+    /* background: #ffffff; */
+    padding: 12px 10px;
+    box-sizing: border-box;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== Nav Links ===== */
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    /* color: #222; */
+    transition: 0.3s ease;
+}
+
+/* .nav-links a:hover {
+    color: #007bff;
+} */
+
+/* ===== Logo ===== */
+.logo img {
+    width: 200px;     /* Proper fixed width */
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+
+    .navbar {
+        padding: 12px 25px;   /* Reduce side padding */
+    }
+
+    .nav-links {
+        gap: 20px;           /* Reduce link spacing */
+    }
+
+    .nav-links a {
+        font-size: 15px;     /* Slightly smaller text */
+    }
+
+    .logo img {
+        width: 110px;        /* Adjust logo size for tablets */
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <body style="visibility: hidden;">
+
+    <div id="transitionOverlay" style="display: none;">
+    <video id="transitionVideo" muted playsinline preload="auto">
+        <source src="Backgrounds/loading.MP4" type="video/mp4">
+    </video>
+</div>
+
+<nav class="navbar">
+    <div class="nav-content">
+
+       <div class="nav-links">
+        <a href="index.html">Home</a>
+              <a href="#" onclick="scrollToBottom()">About Us</a>
+               <a href="#" onclick="playTransition('events.html')">Events</a>
+               <a href="#" onclick="playTransition('contact.html')">Contact Us</a>
+            </div>
+
+            <div class="logo">
+                    <img src="Button Images/logo.png" alt="Logo">
+            </div>
+
+    </div>
+</nav>
+
+    <!-- HERO -->
+  <section class="hero">
+    <img src="Backgrounds/website.png" class="hero-image">
+</section>
+
+<a href="#" onclick="playTransition('events.html')">
+    <img src="Button Images/register.png" class="custom-btn1">
+</a>
+
+<a href="more.html">
+    <img src="Button Images/moreicon.png" class="custom-btn2">
+</a>
+
+<a href="https://www.instagram.com/spectrum.niftdelhi?igsh=MXRwemh3cGc5OGtkMg==" target="_blank">
+    <img src="Button Images/instagram.png" class="custom-btn3">
+</a>
+
+<img src="Button Images/dates.png" class="static-image">
+
+
+<div class="hero-spacer"></div>
+
+<section class="scroll-section" id="bottom">
+    <img src="Backgrounds/about us.png" class="long-image">
+
+     <a href="#" onclick="scrollToTop()" class="back-btn">
+        <img src="Button Images/backicon.png">
+    </a>
+
+</section>
+
+
+     <script>
+function playTransition(targetPage) {
+
+    const overlay = document.getElementById("transitionOverlay");
+    const video = document.getElementById("transitionVideo");
+
+    overlay.style.display = "flex";
+
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+        window.location.href = targetPage;
+    };
+}
+
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+<script>
+const navbar = document.querySelector(".navbar");
+const btn1 = document.querySelector(".custom-btn1");
+const btn2 = document.querySelector(".custom-btn2");
+const btn3 = document.querySelector(".custom-btn3");
+const staticImg = document.querySelector(".static-image");
+const backBtn = document.querySelector(".back-btn");
+const longImage = document.querySelector(".long-image");
+
+window.addEventListener("scroll", () => {
+
+    const hide = window.scrollY > 0;
+
+    navbar.style.opacity = hide ? "0" : "1";
+    btn1.style.opacity = hide ? "0" : "1";
+    btn2.style.opacity = hide ? "0" : "1";
+    btn3.style.opacity = hide ? "0" : "1";
+    staticImg.style.opacity = hide ? "0" : "1";
+
+    // Back button logic
+    const rect = longImage.getBoundingClientRect();
+    const showBack = rect.bottom <= window.innerHeight;
+
+    backBtn.style.opacity = showBack ? "1" : "0";
+    backBtn.style.visibility = showBack ? "visible" : "hidden";
+});
+</script>
+
+<script>
+window.addEventListener("load", function () {
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("scroll") === "about") {
+
+        // Instantly jump to bottom BEFORE showing page
+        window.scrollTo(0, document.documentElement.scrollHeight);
+
+    }
+
+    // Reveal page after correct scroll position
+    document.body.style.visibility = "visible";
+
+});
+</script>
+
+
+
+</body>
+</html>
